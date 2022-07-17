@@ -20,7 +20,7 @@
 
 @layer components {
   .link {
-    @apply block py-2 pr-4 pl-3 border-b md:border-0 md:p-0 text-secondary-text;
+    @apply block pr-1 pl-1 text-secondary-text;
   }
   .link-active {
     @apply text-main-text;

@@ -17,9 +17,9 @@ const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
   };
 
   return (
-    <nav className="px-2 sm:px-4 py-4 rounded">
+    <nav className="px-4 sm:px-4 py-4 rounded">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <a href="https://flowbite.com/" className="flex items-center">
+        <a href="#" className="flex items-center">
           <span className="self-center text-xl font-semibold whitespace-nowrap">
             {siteTitle}
           </span>

@@ -8,7 +8,7 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   return (
     <Transition
       show={isOpen}
-      enter="duration-200 ease-out scale-0"
+      enter="duration-200 ease-out"
       enterFrom="opacity-0 scale-75"
       enterTo="opacity-100 scale-100"
       leave="duration-100 ease-in"
@@ -19,7 +19,7 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
       <div className="rounded-lg shadow-lg">
         <div className="rounded-lg shadow-xs divide-y-2 divide-gray-50 bg-secondary">
           <div className="pt-5 pb-6 px-5 space-y-6">
-            <div className="-mr-2 absolute right-7">
+            <div className="absolute right-7">
               <button
                 onClick={onClose}
                 type="button"
@@ -44,19 +44,19 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
               <nav>
                 <a
                   href="#"
-                  className="-m-3 p-3 flex items-center space-x-3 rounded-md"
+                  className="link -m-3 p-3 flex items-center space-x-3 rounded-md"
                 >
                   <div className="text-base leading-6 font-medium">Home</div>
                 </a>
                 <a
                   href="#"
-                  className="-m-3 p-3 flex items-center space-x-3 rounded-md"
+                  className="link -m-3 p-3 flex items-center space-x-3 rounded-md"
                 >
                   <div className="text-base leading-6 font-medium">About</div>
                 </a>
                 <a
                   href="#"
-                  className="-m-3 p-3 flex items-center space-x-3 rounded-md"
+                  className="link -m-3 p-3 flex items-center space-x-3 rounded-md"
                 >
                   <div className="text-base leading-6 font-medium">
                     Facebook
@@ -69,19 +69,19 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
             <div className="grid grid-cols-2 row-gap-4 col-gap-8">
               <div className="flex flex-col">
                 <h4 className="py-2 font-bold">Category</h4>
-                <a href="#" className="text-base leading-6 font-medium py-1">
+                <a href="#" className="link text-base leading-6 font-medium py-1">
                   JavaScript
                 </a>
-                <a href="#" className="text-base leading-6 font-medium py-1">
+                <a href="#" className="link text-base leading-6 font-medium py-1">
                   Life
                 </a>
-                <a href="#" className="text-base leading-6 font-medium py-1">
+                <a href="#" className="link text-base leading-6 font-medium py-1">
                   Marketing
                 </a>
               </div>
               <div className="flex flex-col">
                 <h4 className="py-2 font-bold">贊助創作</h4>
-                <a href="#" className="text-base leading-6 font-medium py-1">
+                <a href="#" className="link text-base leading-6 font-medium py-1">
                   Line sticky
                 </a>
               </div>
