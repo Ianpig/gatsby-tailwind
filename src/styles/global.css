@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.theme-light {
+  --primary: #f8f8f8;
+  --secondary: #e5e7eb;
+  --text-main: #555;
+  --text-secondary: #454e56;
+  --accent: #009ffd;
+}
+
+.theme-dark {
+  --primary: #333;
+  --secondary: #4d4d4d;
+  --text-main: #e6e6e6;
+  --text-secondary: #b8b8b9;
+  --accent: #fc7753;
+}
+
+@layer components {
+  .link {
+    @apply block py-2 pr-4 pl-3 border-b md:border-0 md:p-0 text-secondary-text;
+  }
+  .link-active {
+    @apply text-main-text;
+  }
+}
