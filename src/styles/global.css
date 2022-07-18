@@ -6,7 +6,7 @@
   --primary: #f8f8f8;
   --secondary: #e5e7eb;
   --text-main: #555;
-  --text-secondary: #454e56;
+  --text-secondary: #131313;
   --accent: #009ffd;
 }
 
@@ -18,11 +18,18 @@
   --accent: #fc7753;
 }
 
+@layer base {
+  html {
+    font-family: "San Francisco", PingFangSC-Regular, "Microsoft JhengHei", "Open Sans", sans-serif, "Heiti TC";
+  }
+}
+
 @layer components {
   .link {
-    @apply block pr-1 pl-1 text-secondary-text;
+    @apply block pr-1 pl-1 text-main-text;
   }
+
   .link-active {
-    @apply text-main-text;
+    @apply text-secondary-text;
   }
 }

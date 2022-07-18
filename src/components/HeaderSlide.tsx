@@ -1,5 +1,6 @@
 import React from "react";
 import { Transition } from "@tailwindui/react";
+import { StaticImage } from "gatsby-plugin-image";
 
 const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   isOpen,
@@ -69,20 +70,38 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
             <div className="grid grid-cols-2 row-gap-4 col-gap-8">
               <div className="flex flex-col">
                 <h4 className="py-2 font-bold">Category</h4>
-                <a href="#" className="link text-base leading-6 font-medium py-1">
+                <a
+                  href="#"
+                  className="link text-base leading-6 font-medium py-1"
+                >
                   JavaScript
                 </a>
-                <a href="#" className="link text-base leading-6 font-medium py-1">
+                <a
+                  href="#"
+                  className="link text-base leading-6 font-medium py-1"
+                >
                   Life
                 </a>
-                <a href="#" className="link text-base leading-6 font-medium py-1">
+                <a
+                  href="#"
+                  className="link text-base leading-6 font-medium py-1"
+                >
                   Marketing
                 </a>
               </div>
               <div className="flex flex-col">
                 <h4 className="py-2 font-bold">贊助創作</h4>
-                <a href="#" className="link text-base leading-6 font-medium py-1">
-                  Line sticky
+                <a
+                  href="https://store.line.me/stickershop/author/1019955/zh-Hant"
+                  className="link text-base leading-6 font-medium py-1"
+                  target="_blank"
+                >
+                  <StaticImage
+                    src="../../content/images/hippostick.png"
+                    alt="line sticky hippo"
+                    width={200}
+                    height={200}
+                  />
                 </a>
               </div>
             </div>

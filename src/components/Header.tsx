@@ -3,6 +3,7 @@ import Toggle from "react-toggle";
 
 import HeaderSlide from "./HeaderSlide";
 import { ThemeContext, ThemeContextType } from "../context/ThemeContext";
+import { Link } from "gatsby";
 
 const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,11 +20,11 @@ const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
   return (
     <nav className="px-4 sm:px-4 py-4 rounded">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <a href="#" className="flex items-center">
-          <span className="self-center text-xl font-semibold whitespace-nowrap">
+        <Link to="/" className="flex items-center">
+          <span className="self-center text-xl font-semibold whitespace-nowrap tracking-widest">
             {siteTitle}
           </span>
-        </a>
+        </Link>
         <div className="flex items-center -mr-2 -my-2 md:hidden">
           <div className="flex mr-2 items-center">
             <Toggle
@@ -59,17 +60,17 @@ const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
         >
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium mr-4">
             <li>
-              <a href="#" className="link link-active" aria-current="page">
+              <a href="#" className="link link-active py-4" aria-current="page">
                 Home
               </a>
             </li>
             <li>
-              <a href="#" className="link">
+              <a href="#" className="link py-4">
                 About
               </a>
             </li>
             <li>
-              <a href="#" className="link">
+              <a href="#" className="link py-4">
                 Facebook
               </a>
             </li>
