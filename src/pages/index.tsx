@@ -1,51 +1,68 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, PageProps } from "gatsby";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 import Layout from "../components/Layout";
 import Banner from "../components/Banner";
 import Seo from "../components/Seo";
+import PostItem from "../components/PostItem";
+
+type DataWithPosts = {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+  allMarkdownRemark: {
+    nodes: [
+      {
+        excerpt: string;
+        fields: {
+          slug: string;
+        };
+        frontmatter: {
+          date: string;
+          title: string;
+          description: string;
+          thumbnail: IGatsbyImageData;
+        };
+      }
+    ];
+  };
+};
 
 // markup
-const IndexPage = ({ data, location }) => {
+const IndexPage = ({ data, location }: PageProps<DataWithPosts>) => {
   const posts = data.allMarkdownRemark.nodes;
 
   return (
     <Layout location={location}>
+      <Seo title="Ian Chu" />
+      <Banner />
       <main>
-        <Seo title="Ian Chu" />
-        <Banner />
-        <ol style={{ listStyle: `none` }}>
-          {posts.map((post) => {
-            const title = post.frontmatter.title || post.fields.slug;
-
-            return (
-              <li key={post.fields.slug}>
-                <article
-                  className="post-list-item"
-                  itemScope
-                  itemType="http://schema.org/Article"
-                >
-                  <header>
-                    <h2>
-                      <Link to={post.fields.slug} itemProp="url">
-                        <span itemProp="headline">{title}</span>
-                      </Link>
-                    </h2>
-                    <small>{post.frontmatter.date}</small>
-                  </header>
-                  <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: post.frontmatter.description || post.excerpt,
-                      }}
-                      itemProp="description"
+        <div className="container mx-auto py-4 sm:px-4">
+          <div className="grid grid-cols-5 gap-4">
+            <div className="col-span-3">
+              <ol style={{ listStyle: `none` }}>
+                {posts.map((post) => {
+                  const title = post.frontmatter.title || post.fields.slug;
+                  const postImage = getImage(post.frontmatter.thumbnail);
+                  return (
+                    <PostItem
+                      key={post.fields.slug}
+                      slug={post.fields.slug}
+                      title={title}
+                      description={post.frontmatter.description || post.excerpt}
+                      postImage={postImage}
+                      date={post.frontmatter.date}
                     />
-                  </section>
-                </article>
-              </li>
-            );
-          })}
-        </ol>
+                  );
+                })}
+              </ol>
+            </div>
+            <div className="col-span-2">Side bar</div>
+          </div>
+        </div>
       </main>
     </Layout>
   );
@@ -70,6 +87,11 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData(width: 800)
+            }
+          }
         }
       }
     }

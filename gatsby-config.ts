@@ -12,6 +12,7 @@ const config: GatsbyConfig = {
     social: {
       twitter: "",
     },
+    lang: "zh-TW",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -56,28 +57,43 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
+        // Footnotes mode (default: true)
+        footnotes: true,
+        // GitHub Flavored Markdown mode (default: true)
+        gfm: true,
+        // Plugins configs
         plugins: [
           {
-            resolve: "gatsby-remark-images",
+            resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1980,
-              withWebp: true,
-              showCaptions: ["title"],
-              quality: 75,
-              wrapperStyle: `margin: 7vw 0;`,
+              maxWidth: 800,
             },
           },
-          {
-            resolve: "gatsby-remark-responsive-iframe",
-            options: {
-              wrapperStyle: "margin-bottom: 1.0725rem",
-            },
-          },
-          "gatsby-remark-prismjs",
-          "gatsby-remark-copy-linked-files",
-          "gatsby-remark-smartypants",
         ],
       },
+      // options: {
+      //   plugins: [
+      //     {
+      //       resolve: "gatsby-remark-images",
+      //       options: {
+      //         maxWidth: 1980,
+      //         withWebp: true,
+      //         showCaptions: ["title"],
+      //         quality: 75,
+      //         wrapperStyle: `margin: 7vw 0;`,
+      //       },
+      //     },
+      //     {
+      //       resolve: "gatsby-remark-responsive-iframe",
+      //       options: {
+      //         wrapperStyle: "margin-bottom: 1.0725rem",
+      //       },
+      //     },
+      //     "gatsby-remark-prismjs",
+      //     "gatsby-remark-copy-linked-files",
+      //     "gatsby-remark-smartypants",
+      //   ],
+      // },
     },
     "gatsby-plugin-postcss",
   ],

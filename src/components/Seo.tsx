@@ -10,11 +10,10 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const Seo: React.FC<{
-  description: string;
-  lang: string;
-  meta: any[];
+  description?: string;
+  meta?: any[];
   title: string;
-}> = ({ description, lang, meta, title }) => {
+}> = ({ description, meta = [], title }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -25,6 +24,7 @@ const Seo: React.FC<{
             social {
               twitter
             }
+            lang
           }
         }
       }
@@ -37,7 +37,7 @@ const Seo: React.FC<{
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: site?.lang || "en",
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
@@ -77,12 +77,6 @@ const Seo: React.FC<{
       ].concat(meta)}
     />
   );
-};
-
-Seo.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
 };
 
 export default Seo;

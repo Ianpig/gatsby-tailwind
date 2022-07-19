@@ -32,10 +32,10 @@ const Layout: React.FC<{ children: any; location: { pathname: string } }> = ({
     <div
       className={`${
         theme === "light" ? "theme-light" : "theme-dark"
-      } bg-primary text-main-text transition-all duration-300 m-0 p-0 min-h-screen`}
+      } bg-primary text-main-text transition-all duration-300 m-0 p-0 min-h-screen flex flex-col`}
     >
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <>{children}</>
+      <div className="grow">{children}</div>
       <footer className="text-center">
         © {new Date().getFullYear()} &middot; Built with
         {` `}
