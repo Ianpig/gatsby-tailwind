@@ -36,7 +36,7 @@ const Layout: React.FC<{ children: any; location: { pathname: string } }> = ({
     >
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div className="grow">{children}</div>
-      <footer className="text-center">
+      <footer className="text-center py-2 text-sm">
         © {new Date().getFullYear()} &middot; Built with
         {` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>

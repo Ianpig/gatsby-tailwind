@@ -1,11 +1,11 @@
 ---
-title: Mask
-date: "2022-05-01T22:12:03.284Z"
+title: Rainbow
+date: "2022-04-01T22:12:03.284Z"
 description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus."
-thumbnail: ../images/mask1.jpeg
+thumbnail: ../images/rainbow.jpeg
 categories: life
 tags:
-  - festival
+  - weather
 ---
 
 This is my first post on my new fake blog! How exciting!

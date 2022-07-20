@@ -28,7 +28,12 @@ const PostItem = ({
         <header className="pb-2">
           <h2>
             <Link to={slug} itemProp="url">
-              <span itemProp="headline">{title}</span>
+              <h2
+                className="text-lg font-bold text-ellipsis overflow-hidden"
+                itemProp="headline"
+              >
+                {title}
+              </h2>
             </Link>
           </h2>
         </header>
@@ -43,7 +48,7 @@ const PostItem = ({
             />
           </Link>
         </section>
-        <small>{date}</small>
+        <small className="text-sm">{date}</small>
       </div>
       <div>{postImage && <GatsbyImage image={postImage} alt={title} />}</div>
     </article>

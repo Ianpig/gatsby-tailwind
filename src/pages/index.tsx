@@ -53,8 +53,8 @@ const IndexPage = ({ data, location }: PageProps<DataWithPosts>) => {
       <Banner />
       <main>
         <div className="container mx-auto py-4 sm:px-4 lg:max-w-screen-lg">
-          <div className="grid grid-cols-5 gap-20">
-            <div className="col-span-3">
+          <div className="grid grid-cols-6 gap-20">
+            <div className="col-span-4">
               {posts.map((post) => {
                 const title = post.frontmatter.title || post.fields.slug;
                 const postImage = getImage(post.frontmatter.thumbnail);
@@ -101,7 +101,7 @@ export const pageQuery = graphql`
           description
           thumbnail {
             childImageSharp {
-              gatsbyImageData(width: 800)
+              gatsbyImageData(width: 400)
             }
           }
         }

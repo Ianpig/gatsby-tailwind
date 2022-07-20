@@ -13,8 +13,8 @@ const SideBar = ({
 }) => {
   return (
     <>
-      <div className="pb-4">
-        <p className="text-base py-2">贊助創作</p>
+      <div className="pb-6">
+        <p className="text-base py-2 font-medium">贊助創作</p>
         <a
           href="https://store.line.me/stickershop/author/1019955/zh-Hant"
           className="link text-base leading-6 font-medium py-1 text-center"
@@ -28,23 +28,25 @@ const SideBar = ({
           <p className="text-base text-center py-2">Line 貼圖</p>
         </a>
       </div>
-      <div className="pb-4 py-2">
-        <p className="text-base">Category</p>
+      <div className="pb-6">
+        <p className="text-base py-2 font-medium">Category</p>
         <div>
           {categories.map(({ value }) => (
             <Link key={value} to={`/categories/${value}`}>
-              {value}
+              <p className="text-sm pb-2">{value}</p>
             </Link>
           ))}
         </div>
       </div>
-      <div className="pb-4 py-2">
-        <p className="text-base">Tag</p>
-        <div>
+      <div className="pb-6">
+        <p className="text-base py-2 font-medium">Tag</p>
+        <div className="flex flex-wrap">
           {tags.map(({ value }, index) => (
             <div className="tag-item" key={value}>
-              <Link to={`/tags/${value.replace(/\./g, "_")}`}>{value}</Link>
-              {index < tags.length - 1 && <span className="dot">·</span>}
+              <Link to={`/tags/${value}`}>
+                <span className="text-sm pb-2">{value}</span>
+              </Link>
+              {index < tags.length - 1 && <span className="px-0.5">·</span>}
             </div>
           ))}
         </div>
