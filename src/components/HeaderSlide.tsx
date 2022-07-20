@@ -90,7 +90,7 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
                 </a>
               </div>
               <div className="flex flex-col">
-                <h4 className="py-2 font-bold">贊助創作</h4>
+                <h4 className="py-2 font-bold">Sponsor Creator</h4>
                 <a
                   href="https://store.line.me/stickershop/author/1019955/zh-Hant"
                   className="link text-base leading-6 font-medium py-1"
@@ -102,7 +102,7 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
                     width={200}
                     height={200}
                   />
-                  <p className="text-base">Line 貼圖</p>
+                  <p className="text-base">Line Sticky</p>
                 </a>
               </div>
             </div>

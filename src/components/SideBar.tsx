@@ -14,7 +14,7 @@ const SideBar = ({
   return (
     <>
       <div className="pb-6">
-        <p className="text-base py-2 font-medium">贊助創作</p>
+        <p className="text-base py-2 font-medium">Sponsor Creator</p>
         <a
           href="https://store.line.me/stickershop/author/1019955/zh-Hant"
           className="link text-base leading-6 font-medium py-1 text-center"
@@ -25,7 +25,7 @@ const SideBar = ({
             alt="line sticky hippo"
             width={150}
           />
-          <p className="text-base text-center py-2">Line 貼圖</p>
+          <p className="text-base text-center py-2">Line Sticky</p>
         </a>
       </div>
       <div className="pb-6">
