@@ -20,7 +20,7 @@ const PostItem = ({
   return (
     <article
       key={slug}
-      className="grid grid-cols-3 gap-4"
+      className="grid grid-cols-3 gap-4 pb-20"
       itemScope
       itemType="http://schema.org/Article"
     >

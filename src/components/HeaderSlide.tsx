@@ -15,7 +15,7 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
       leave="duration-100 ease-in"
       leaveFrom="opacity-100 scale-100"
       leaveTo="opacity-0 scale-95"
-      className="fixed inset-x-0 p-2 origin-top-right md:hidden top-0"
+      className="fixed inset-x-0 p-2 origin-top-right md:hidden top-0 z-10"
     >
       <div className="rounded-lg shadow-lg">
         <div className="rounded-lg shadow-xs divide-y-2 divide-gray-50 bg-secondary">
@@ -102,6 +102,7 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
                     width={200}
                     height={200}
                   />
+                  <p className="text-base">Line 貼圖</p>
                 </a>
               </div>
             </div>
