@@ -14,10 +14,6 @@ const config: GatsbyConfig = {
     },
     lang: "zh-TW",
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
-  // graphqlTypegen: true,
   plugins: [
     {
       resolve: "gatsby-plugin-google-analytics",
@@ -43,7 +39,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: "${__dirname}/content/blog",
+        path: `${__dirname}/content/blog`,
         name: "blog",
       },
     },
@@ -51,17 +47,14 @@ const config: GatsbyConfig = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "${__dirname}/content/images",
+        path: `${__dirname}/content/images`,
       },
     },
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        // Footnotes mode (default: true)
         footnotes: true,
-        // GitHub Flavored Markdown mode (default: true)
         gfm: true,
-        // Plugins configs
         plugins: [
           {
             resolve: "gatsby-remark-images",

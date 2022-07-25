@@ -21,7 +21,8 @@
 @layer base {
   html {
     background: #333;
-    font-family: "San Francisco", PingFangSC-Regular, "Microsoft JhengHei", "Open Sans", sans-serif, "Heiti TC";
+    font-family: "San Francisco", PingFangSC-Regular, "Microsoft JhengHei",
+      "Open Sans", sans-serif, "Heiti TC";
   }
 
   h1 {
@@ -31,7 +32,6 @@
   p {
     @apply mb-5;
   }
-
 }
 
 @layer components {
