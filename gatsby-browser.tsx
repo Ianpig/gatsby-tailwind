@@ -1,5 +1,6 @@
 import "react-toggle/style.css";
 import "./src/styles/global.css";
+import "prismjs/themes/prism.css";
 
 import React from "react";
 
