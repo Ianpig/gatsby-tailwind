@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import Toggle from "react-toggle";
+import { Link } from "gatsby";
 
 import HeaderSlide from "./HeaderSlide";
 import { ThemeContext, ThemeContextType } from "../context/ThemeContext";
-import { Link } from "gatsby";
+import SwitchTheme from "./SwitchTheme";
 
 const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,11 +27,9 @@ const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
         </Link>
         <div className="flex items-center -mr-2 -my-2 md:hidden">
           <div className="flex mr-2 items-center">
-            <Toggle
-              id="theme-toggle"
+            <SwitchTheme
               checked={theme === "dark" ? true : false}
               onChange={handleThemeToggle}
-              icons={false}
             />
           </div>
           <button
@@ -76,11 +74,9 @@ const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
             </li>
           </ul>
           <div className="flex items-center">
-            <Toggle
-              id="theme-toggle"
+            <SwitchTheme
               checked={theme === "dark" ? true : false}
               onChange={handleThemeToggle}
-              icons={false}
             />
           </div>
         </div>

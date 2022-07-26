@@ -37,15 +37,13 @@
     "prism-themes": "^1.9.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-helmet": "^6.1.0",
-    "react-toggle": "^4.1.2"
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.6",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/react-helmet": "^6.1.5",
-    "@types/react-toggle": "^4.0.3",
     "autoprefixer": "^10.4.7",
     "gatsby-plugin-postcss": "^5.18.0",
     "postcss": "^8.4.14",

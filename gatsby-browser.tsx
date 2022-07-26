@@ -1,5 +1,5 @@
-import "react-toggle/style.css";
 import "./src/styles/global.css";
+import "./src/styles/switch.css";
 import "prism-themes/themes/prism-one-dark.min.css";
 
 import React from "react";

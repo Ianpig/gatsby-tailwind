@@ -1,0 +1,138 @@
+/* check dark mode */
+.switch-theme {
+  user-select: none;
+}
+
+.switch-theme label {
+  display: block;
+  position: relative;
+  width: 64px;
+  height: 28px;
+  margin: 0 auto;
+  background-color: #000000;
+  border-radius: 45px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.switch-theme input[type='checkbox']+label:before {
+  display: none;
+}
+
+.switch-container {
+  display: flex;
+}
+
+@media (max-width: 850px) {
+  .switch-container {
+    position: relative;
+    top: 7px;
+  }
+}
+
+.switch-container .facebook-icon {
+  min-width: 52.44px;
+  padding-left: 25px;
+}
+
+.switch-container .facebook-icon i.fa-facebook-square {
+  font-size: 32px;
+  color: #0982df;
+  position: relative;
+}
+
+.switch-container .facebook-icon i.fa-facebook-square:after {
+  content: '';
+  display: block;
+  background: #fff;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  bottom: 3px;
+  z-index: -1;
+  width: 50%;
+  height: 74%;
+  right: 4px;
+  border-radius: 15%;
+}
+
+#toggle_checkbox {
+  display: none;
+}
+
+#toggle_checkbox:checked+label {
+  background-color: #000;
+}
+
+#toggle_checkbox:checked+label #star {
+  top: 1px;
+  left: 1px;
+  transform: scale(0.5);
+  background-color: yellow;
+}
+
+#star {
+  position: absolute;
+  top: 4px;
+  left: 36px;
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  transform: scale(1);
+  border-radius: 50%;
+  transition: 0.3s ease top, 0.3s ease left, 0.3s ease transform;
+  z-index: 1;
+}
+
+#toggle_checkbox:checked+label .star {
+  color: yellow;
+}
+
+#star-1 {
+  position: relative;
+}
+
+.star {
+  top: -6px;
+  left: -4px;
+  font-size: 28px;
+  line-height: 28px;
+  color: #fbff01;
+  transition: 0.3s ease color;
+}
+
+#star-2 {
+  position: absolute;
+  transform: rotateZ(36deg);
+}
+
+#toggle_checkbox:checked+label #moon {
+  bottom: 2px;
+}
+
+#moon {
+  position: absolute;
+  bottom: -52px;
+  left: 5px;
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  -webkit-transition: 0.3s ease bottom;
+  transition: 0.3s ease bottom;
+}
+
+#moon:before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -20px;
+  width: 35px;
+  height: 35px;
+  background-color: #000000;
+  border-radius: 50%;
+}
+
+#toggle_checkbox:checked+label #moon:before {
+  background-color: #000;
+}
