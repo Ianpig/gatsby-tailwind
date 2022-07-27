@@ -9,14 +9,6 @@ import type { ThemeContextType } from "../context/ThemeContext";
 
 const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, setTheme } = useContext(ThemeContext) as ThemeContextType;
-
-  const handleThemeToggle = () => {
-    setTheme((prev) => {
-      const select = prev === "dark" ? "light" : "dark";
-      return select;
-    });
-  };
 
   return (
     <nav className="px-4 sm:px-4 py-4 rounded">
@@ -28,10 +20,7 @@ const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
         </Link>
         <div className="flex items-center -mr-2 -my-2 md:hidden">
           <div className="flex mr-2 items-center">
-            <SwitchTheme
-              checked={theme === "dark" ? false : true}
-              onChange={handleThemeToggle}
-            />
+            <SwitchTheme />
           </div>
           <button
             type="button"
@@ -75,10 +64,7 @@ const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
             </li>
           </ul>
           <div className="flex items-center">
-            <SwitchTheme
-              checked={theme === "light" ? true : false}
-              onChange={handleThemeToggle}
-            />
+            <SwitchTheme />
           </div>
         </div>
       </div>
