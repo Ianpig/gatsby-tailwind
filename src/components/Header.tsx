@@ -1,17 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "gatsby";
 
 import HeaderSlide from "./HeaderSlide";
-import { ThemeContext } from "../context/ThemeContext";
 import SwitchTheme from "./SwitchTheme";
 
-import type { ThemeContextType } from "../context/ThemeContext";
-
-const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
+const Header: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="px-4 sm:px-4 py-4 rounded">
+    <nav className="mx-6 sm:px-4 py-4 rounded">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link to="/" className="flex items-center">
           <span className="self-center text-xl font-semibold whitespace-nowrap tracking-widest">
@@ -73,4 +70,4 @@ const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
   );
 };
 
-export default Navbar;
+export default Header;

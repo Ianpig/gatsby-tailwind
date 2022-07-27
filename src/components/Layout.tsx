@@ -36,7 +36,7 @@ const Layout: React.FC<{
       } bg-primary text-main-text transition-all duration-300 m-0 p-0 min-h-screen flex flex-col`}
     >
       <Header siteTitle={title || data.site.siteMetadata?.title} />
-      <div className="grow">{children}</div>
+      <div className="grow mx-6 md:mx-0">{children}</div>
       <footer className="text-center py-2 text-sm">
         © {new Date().getFullYear()} &middot; Built with
         {` `}

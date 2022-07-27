@@ -53,8 +53,8 @@ const IndexPage = ({ data, location }: PageProps<DataWithPosts>) => {
       <Banner />
       <main>
         <div className="container mx-auto py-4 sm:px-4 lg:max-w-screen-lg">
-          <div className="grid grid-cols-6 gap-20">
-            <div className="col-span-4">
+          <div className="grid md:grid-cols-6 md:gap-20">
+            <div className="md:col-span-4">
               {posts.map((post) => {
                 const title = post.frontmatter.title || post.fields.slug;
                 const postImage = getImage(post.frontmatter.thumbnail);
@@ -70,7 +70,7 @@ const IndexPage = ({ data, location }: PageProps<DataWithPosts>) => {
                 );
               })}
             </div>
-            <div className="col-span-2">
+            <div className="hidden md:block md:col-span-2">
               <SideBar categories={categories} tags={tags} />
             </div>
           </div>
