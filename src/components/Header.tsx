@@ -45,19 +45,19 @@ const Header: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
         >
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium mr-4">
             <li>
-              <a href="#" className="link link-active py-4" aria-current="page">
+              <Link to={"/"} className="link link-active py-4">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="link py-4">
+              <Link to={"/about"} className="link py-4">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="link py-4">
+              <Link to="https://www.facebook.com/chu1228" className="link py-4">
                 Facebook
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="flex items-center">

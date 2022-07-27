@@ -17,9 +17,11 @@ const SideBar = ({
   const entry = useIntersectionObserver(ref, { rootMargin: "0px 0px -100%" });
   const isVisible = entry?.isIntersecting;
 
+  const fixClassName = isVisible ? "sticky top-0" : "";
+
   return (
     <div ref={ref} className="h-full">
-      <div className={isVisible ? "sticky top-0" : ""}>
+      <div className={`pt-2 ${fixClassName}`}>
         <div className="pb-6">
           <p className="text-base py-2 font-medium">Sponsor Creator</p>
           <a
@@ -28,7 +30,7 @@ const SideBar = ({
             target="_blank"
           >
             <StaticImage
-              src="../../content/images/hippostick.png"
+              src="../images/hippostick.png"
               alt="line sticky hippo"
               width={150}
             />

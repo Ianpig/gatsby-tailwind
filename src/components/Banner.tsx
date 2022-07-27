@@ -10,7 +10,7 @@ const Banner: React.FC = () => {
       </div>
       <div className="flex items-center	justify-start">
         <StaticImage
-          src="../../content/images/banner.png"
+          src="../images/banner.png"
           alt="ian and hippo"
           width={240}
         />

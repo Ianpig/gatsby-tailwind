@@ -1,11 +1,32 @@
 import React from "react";
 import { Transition } from "@tailwindui/react";
 import { StaticImage } from "gatsby-plugin-image";
+import { graphql, Link, useStaticQuery } from "gatsby";
+
+import type { CategoriesType, TagsType } from "../pages/index";
 
 const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   isOpen,
   onClose,
 }) => {
+  const {
+    allMarkdownRemark: { tags, categories },
+  }: {
+    allMarkdownRemark: { tags: TagsType[]; categories: CategoriesType[] };
+  } = useStaticQuery(
+    graphql`
+      query {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+          tags: group(field: frontmatter___tags) {
+            value: fieldValue
+          }
+          categories: group(field: frontmatter___categories) {
+            value: fieldValue
+          }
+        }
+      }
+    `
+  );
   return (
     <Transition
       show={isOpen}
@@ -19,7 +40,7 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
     >
       <div className="rounded-lg shadow-lg">
         <div className="rounded-lg shadow-xs divide-y-2 divide-gray-50 bg-secondary">
-          <div className="pt-5 pb-6 px-5 space-y-6">
+          <div className="pt-6 pb-6 px-4 space-y-6">
             <div className="absolute right-7">
               <button
                 onClick={onClose}
@@ -43,51 +64,46 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
             </div>
             <div>
               <nav>
-                <a
-                  href="#"
-                  className="link -m-3 p-3 flex items-center space-x-3 rounded-md"
-                >
+                <Link to={"/"} className="link p-2 flex items-center">
                   <div className="text-base leading-6 font-medium">Home</div>
-                </a>
-                <a
-                  href="#"
-                  className="link -m-3 p-3 flex items-center space-x-3 rounded-md"
-                >
+                </Link>
+                <Link to={"/about"} className="link p-2 flex items-center">
                   <div className="text-base leading-6 font-medium">About</div>
-                </a>
-                <a
-                  href="#"
-                  className="link -m-3 p-3 flex items-center space-x-3 rounded-md"
+                </Link>
+                <Link
+                  to="https://www.facebook.com/chu1228"
+                  className="link p-2 flex items-center"
                 >
                   <div className="text-base leading-6 font-medium">
                     Facebook
                   </div>
-                </a>
+                </Link>
               </nav>
             </div>
           </div>
           <div className="py-6 px-5 space-y-6">
             <div className="grid grid-cols-2 row-gap-4 col-gap-8">
               <div className="flex flex-col">
-                <h4 className="py-2 font-bold">Category</h4>
-                <a
-                  href="#"
-                  className="link text-base leading-6 font-medium py-1"
-                >
-                  JavaScript
-                </a>
-                <a
-                  href="#"
-                  className="link text-base leading-6 font-medium py-1"
-                >
-                  Life
-                </a>
-                <a
-                  href="#"
-                  className="link text-base leading-6 font-medium py-1"
-                >
-                  Marketing
-                </a>
+                <div className="mb-4">
+                  <h4 className="py-2 font-bold">Category</h4>
+                  {categories.map(({ value }) => (
+                    <Link key={value} to={`/categories/${value}`}>
+                      <p className="link text-base leading-6 font-medium py-1">
+                        {value}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+                <div>
+                  <h4 className="py-2 font-bold">Tags</h4>
+                  {tags.map(({ value }) => (
+                    <Link key={value} to={`/tags/${value}`}>
+                      <p className="link text-base leading-6 font-medium py-1">
+                        {value}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
               </div>
               <div className="flex flex-col">
                 <h4 className="py-2 font-bold">Sponsor Creator</h4>
@@ -97,12 +113,12 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
                   target="_blank"
                 >
                   <StaticImage
-                    src="../../content/images/hippostick.png"
+                    src="../images/hippostick.png"
                     alt="line sticky hippo"
                     width={200}
                     height={200}
                   />
-                  <p className="text-base">Line Sticky</p>
+                  <p className="text-base text-center my-2">Line Sticky</p>
                 </a>
               </div>
             </div>
