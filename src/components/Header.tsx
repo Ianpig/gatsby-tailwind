@@ -28,7 +28,7 @@ const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
         <div className="flex items-center -mr-2 -my-2 md:hidden">
           <div className="flex mr-2 items-center">
             <SwitchTheme
-              checked={theme === "dark" ? true : false}
+              checked={theme === "dark" ? false : true}
               onChange={handleThemeToggle}
             />
           </div>
@@ -75,7 +75,7 @@ const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
           </ul>
           <div className="flex items-center">
             <SwitchTheme
-              checked={theme === "dark" ? true : false}
+              checked={theme === "light" ? true : false}
               onChange={handleThemeToggle}
             />
           </div>

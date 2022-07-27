@@ -60,13 +60,13 @@
   display: none;
 }
 
-#toggle_checkbox:checked+label {
+#toggle_checkbox+label {
   background-color: #000;
 }
 
-#toggle_checkbox:checked+label #star {
+#toggle_checkbox+label #star {
   top: 1px;
-  left: 1px;
+  right: 4px;
   transform: scale(0.5);
   background-color: yellow;
 }
@@ -74,17 +74,19 @@
 #star {
   position: absolute;
   top: 4px;
-  left: 36px;
+  left: 31px;
   width: 20px;
   height: 20px;
   background-color: yellow;
   transform: scale(1);
   border-radius: 50%;
-  transition: 0.3s ease top, 0.3s ease left, 0.3s ease transform;
   z-index: 1;
+  transition: 0.3s ease top, 0.3s ease left, 0.3s ease transform;
+
 }
 
-#toggle_checkbox:checked+label .star {
+
+#toggle_checkbox+label .star {
   color: yellow;
 }
 
@@ -107,13 +109,13 @@
 }
 
 #toggle_checkbox:checked+label #moon {
-  bottom: 2px;
+  bottom: -52px;
 }
 
 #moon {
   position: absolute;
-  bottom: -52px;
-  left: 5px;
+  bottom: 2px;
+  right: 5px;
   width: 25px;
   height: 25px;
   background-color: #fff;
@@ -133,6 +135,12 @@
   border-radius: 50%;
 }
 
-#toggle_checkbox:checked+label #moon:before {
+#toggle_checkbox+label #moon:before {
   background-color: #000;
+}
+
+#toggle_checkbox:checked+label #star {
+  left: 5px;
+  transform: scale(0.8);
+  top: 4px;
 }
