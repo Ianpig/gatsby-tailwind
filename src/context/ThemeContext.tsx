@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-type ThemeType = "dark" | "light";
+export type ThemeType = "dark" | "light";
 
 export type ThemeContextType = {
   theme: ThemeType;
-  setTheme: (v: ThemeType) => void;
+  setTheme: React.Dispatch<React.SetStateAction<ThemeType>>;
 };
 
 export const ThemeContext = React.createContext({});

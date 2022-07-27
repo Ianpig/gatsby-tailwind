@@ -2,19 +2,20 @@ import React, { useContext, useState } from "react";
 import { Link } from "gatsby";
 
 import HeaderSlide from "./HeaderSlide";
-import { ThemeContext, ThemeContextType } from "../context/ThemeContext";
+import { ThemeContext } from "../context/ThemeContext";
 import SwitchTheme from "./SwitchTheme";
+
+import type { ThemeContextType } from "../context/ThemeContext";
 
 const Navbar: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme } = useContext(ThemeContext) as ThemeContextType;
 
   const handleThemeToggle = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
+    setTheme((prev) => {
+      const select = prev === "dark" ? "light" : "dark";
+      return select;
+    });
   };
 
   return (
