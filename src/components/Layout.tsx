@@ -40,7 +40,10 @@ const Layout: React.FC<{
       <footer className="text-center py-2 text-sm">
         © {new Date().getFullYear()} &middot; Built with
         {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <a href="https://www.gatsbyjs.com">Gatsby</a> &middot; {" "}
+        <a href="https://github.com/Ianpig/gatsby-tailwind-typescript-starter">
+          Ian Chu
+        </a>
       </footer>
     </div>
   );

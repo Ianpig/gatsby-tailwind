@@ -6,6 +6,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/post.tsx`);
+  const categoriesTemplate = path.resolve(`./src/templates/categories.tsx`);
+  const tagTemplate = path.resolve(`./src/templates/tags.tsx`);
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -22,6 +24,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
+        tagsGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___tags) {
+            fieldValue
+          }
+        }
+        categoriesGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___categories) {
+            fieldValue
+          }
+        }
       }
     `
   );
@@ -36,10 +48,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const posts = result.data.allMarkdownRemark.nodes;
 
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
-
   if (posts.length > 0) {
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id;
@@ -53,6 +61,32 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId,
+        },
+      });
+    });
+  }
+  // categories
+  const categories = result.data.categoriesGroup.group;
+  if (categories.length > 0) {
+    categories.forEach((category) => {
+      createPage({
+        path: `/categories/${category.fieldValue.replace(/\./g, "_")}/`,
+        component: categoriesTemplate,
+        context: {
+          category: category.fieldValue,
+        },
+      });
+    });
+  }
+  // tags
+  const tags = result.data.tagsGroup.group;
+  if (tags.length > 0) {
+    tags.forEach((tag) => {
+      createPage({
+        path: `/tags/${tag.fieldValue.replace(/\./g, "_")}/`,
+        component: tagTemplate,
+        context: {
+          tag: tag.fieldValue,
         },
       });
     });

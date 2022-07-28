@@ -40,8 +40,13 @@ type DataWithPosts = {
   };
 };
 
-const IndexPage = ({ data, location }: PageProps<DataWithPosts>) => {
+const Categories = ({
+  pageContext,
+  data,
+  location,
+}: PageProps<DataWithPosts>) => {
   const posts = data.allMarkdownRemark.nodes;
+  const { category } = pageContext as { category: string };
 
   return (
     <Layout location={location}>
@@ -49,6 +54,11 @@ const IndexPage = ({ data, location }: PageProps<DataWithPosts>) => {
       <Banner />
       <main>
         <div className="container mx-auto py-4 sm:px-4 lg:max-w-screen-lg">
+          <div className="pb-10">
+            <h3 className="text-lg font-bold">
+              Category: {category} ({posts.length})
+            </h3>
+          </div>
           <div className="grid md:grid-cols-6 md:gap-20">
             <div className="md:col-span-4">
               {posts.map((post) => {
@@ -76,16 +86,19 @@ const IndexPage = ({ data, location }: PageProps<DataWithPosts>) => {
   );
 };
 
-export default IndexPage;
+export default Categories;
 
 export const pageQuery = graphql`
-  query {
+  query ($category: String) {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { categories: { in: [$category] } } }
+    ) {
       nodes {
         excerpt
         fields {

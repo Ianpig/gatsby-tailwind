@@ -1,18 +1,31 @@
 import React, { useRef } from "react";
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 import type { CategoriesType, TagsType } from "../pages/index";
 
-const SideBar = ({
-  categories,
-  tags,
-}: {
-  categories: CategoriesType[];
-  tags: TagsType[];
-}) => {
+const SideBar = () => {
+  const {
+    allMarkdownRemark: { tags, categories },
+  }: {
+    allMarkdownRemark: { tags: TagsType[]; categories: CategoriesType[] };
+  } = useStaticQuery(
+    graphql`
+      query {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+          tags: group(field: frontmatter___tags) {
+            value: fieldValue
+          }
+          categories: group(field: frontmatter___categories) {
+            value: fieldValue
+          }
+        }
+      }
+    `
+  );
+
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, { rootMargin: "0px 0px -100%" });
   const isVisible = entry?.isIntersecting;

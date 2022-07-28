@@ -42,8 +42,6 @@ const BlogPostTemplate = ({ data, location }: PageProps<PostType>) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const { previous, next } = data;
 
-  console.log(post);
-
   const postImage = getImage(post.frontmatter.thumbnail);
 
   return (
