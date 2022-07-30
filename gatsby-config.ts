@@ -31,7 +31,7 @@ const config: GatsbyConfig = {
         short_name: "IanChu",
         start_url: "/",
         background_color: "#ffffff",
-        icon: "src/images/gatsby-icon.png",
+        icon: "src/images/icon.png",
       },
     },
     {
