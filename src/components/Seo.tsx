@@ -5,15 +5,18 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react";
+import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
+import { ThemeContext, ThemeContextType } from "../context/ThemeContext";
 
 const Seo: React.FC<{
   description?: string;
   meta?: any[];
   title: string;
 }> = ({ description, meta = [], title }) => {
+  const { theme } = useContext(ThemeContext) as ThemeContextType;
+
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -38,6 +41,7 @@ const Seo: React.FC<{
     <Helmet
       htmlAttributes={{
         lang: site?.lang || "en",
+        class: theme === "light" ? "theme-light" : "theme-dark",
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}

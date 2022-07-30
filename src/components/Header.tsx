@@ -4,8 +4,12 @@ import { Link } from "gatsby";
 import HeaderSlide from "./HeaderSlide";
 import SwitchTheme from "./SwitchTheme";
 
-const Header: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
+const Header: React.FC<{
+  siteTitle: string;
+  location: { pathname: string };
+}> = ({ siteTitle, location }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = location;
 
   return (
     <nav className="mx-6 sm:px-4 py-4 rounded">
@@ -45,12 +49,20 @@ const Header: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
         >
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium mr-4">
             <li>
-              <Link to={"/"} className="link link-active py-4">
+              <Link
+                to={"/"}
+                className={`link py-4 ${pathname === "/" && `link-active`}`}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link to={"/about"} className="link py-4">
+              <Link
+                to={"/about"}
+                className={`link py-4 ${
+                  pathname === "/about" && `link-active`
+                }`}
+              >
                 About
               </Link>
             </li>
@@ -65,7 +77,11 @@ const Header: React.FC<{ siteTitle: string }> = ({ siteTitle }) => {
           </div>
         </div>
       </div>
-      <HeaderSlide isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <HeaderSlide
+        pathname={pathname}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
     </nav>
   );
 };

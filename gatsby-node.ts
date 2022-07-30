@@ -8,6 +8,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const blogPost = path.resolve(`./src/templates/post.tsx`);
   const categoriesTemplate = path.resolve(`./src/templates/categories.tsx`);
   const tagTemplate = path.resolve(`./src/templates/tags.tsx`);
+  const about = path.resolve(`./src/pages/about.tsx`);
+
+  createPage({
+    path: `/about`,
+    component: about,
+  });
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(

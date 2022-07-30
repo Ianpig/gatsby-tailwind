@@ -9,6 +9,7 @@ type PostItemType = {
   postImage?: IGatsbyImageData;
   date: string;
   category: string;
+  readingTimeText: string;
 };
 
 const PostItem = ({
@@ -18,6 +19,7 @@ const PostItem = ({
   postImage,
   date,
   category,
+  readingTimeText,
 }: PostItemType) => {
   return (
     <article
@@ -54,6 +56,8 @@ const PostItem = ({
           <small className="text-sm">{date}</small>
           <div>·</div>
           <Link to={`/categories/${category}`}>{category}</Link>
+          <div>·</div>
+          <div>{readingTimeText}</div>
         </div>
       </div>
       <div>{postImage && <GatsbyImage image={postImage} alt={title} />}</div>

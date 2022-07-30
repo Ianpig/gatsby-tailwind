@@ -82,7 +82,7 @@ const BlogPostTemplate = ({ data, location }: PageProps<PostType>) => {
       <div>
         <div className="lg:max-w-screen-lg mx-auto">
           <header>
-            <h1 className="text-center py-4 my-10" itemProp="headline">
+            <h1 className="text-center py-4 my-10 font-bold" itemProp="headline">
               {post.frontmatter.title}
             </h1>
             {postImage && (

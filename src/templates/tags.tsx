@@ -73,6 +73,7 @@ const Tags = ({ pageContext, data, location }: PageProps<DataWithPosts>) => {
                     postImage={postImage}
                     date={post.frontmatter.date}
                     category={post.frontmatter.categories}
+                    readingTimeText={post.fields.readingTime.text}
                   />
                 );
               })}
@@ -104,6 +105,9 @@ export const pageQuery = graphql`
         excerpt
         fields {
           slug
+          readingTime {
+            text
+          }
         }
         frontmatter {
           date(formatString: "MMMM DD, YYYY")

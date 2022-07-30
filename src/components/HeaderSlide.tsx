@@ -5,10 +5,11 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 
 import type { CategoriesType, TagsType } from "../pages/index";
 
-const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
-  isOpen,
-  onClose,
-}) => {
+const HeaderSlide: React.FC<{
+  isOpen: boolean;
+  onClose: () => void;
+  pathname: string;
+}> = ({ isOpen, onClose, pathname }) => {
   const {
     allMarkdownRemark: { tags, categories },
   }: {
@@ -64,10 +65,20 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
             </div>
             <div>
               <nav>
-                <Link to={"/"} className="link p-2 flex items-center">
+                <Link
+                  to={"/"}
+                  className={`link p-2 flex items-center ${
+                    pathname === "/" && "link-active"
+                  }`}
+                >
                   <div className="text-base leading-6 font-medium">Home</div>
                 </Link>
-                <Link to={"/about"} className="link p-2 flex items-center">
+                <Link
+                  to={"/about"}
+                  className={`link p-2 flex items-center ${
+                    pathname === "/about" && "link-active"
+                  }`}
+                >
                   <div className="text-base leading-6 font-medium">About</div>
                 </Link>
                 <Link

@@ -28,6 +28,9 @@ type DataWithPosts = {
         excerpt: string;
         fields: {
           slug: string;
+          readingTime: {
+            text: string;
+          };
         };
         frontmatter: {
           date: string;
@@ -74,6 +77,7 @@ const Categories = ({
                     postImage={postImage}
                     date={post.frontmatter.date}
                     category={post.frontmatter.categories}
+                    readingTimeText={post.fields.readingTime.text}
                   />
                 );
               })}
@@ -105,6 +109,9 @@ export const pageQuery = graphql`
         excerpt
         fields {
           slug
+          readingTime {
+            text
+          }
         }
         frontmatter {
           date(formatString: "MMMM DD, YYYY")

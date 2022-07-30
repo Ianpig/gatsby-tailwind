@@ -12,15 +12,15 @@ const PostPreNext = ({
 }) => {
   return (
     <nav>
-      <ul className="flex flex-wrap	justify-between	p-0	">
-        <li>
+      <ul className="md:flex md:justify-between">
+        <li className="flex grow">
           {previous && (
             <Link to={previous.fields.slug} rel="prev">
               ← {previous.frontmatter.title}
             </Link>
           )}
         </li>
-        <li>
+        <li className="flex grow justify-end">
           {next && (
             <Link to={next.fields.slug} rel="next">
               {next.frontmatter.title} →
