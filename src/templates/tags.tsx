@@ -28,12 +28,16 @@ type DataWithPosts = {
         excerpt: string;
         fields: {
           slug: string;
+          readingTime: {
+            text: string;
+          };
         };
         frontmatter: {
           date: string;
           title: string;
           description: string;
           thumbnail: IGatsbyImageData;
+          categories: string;
         };
       }
     ];
@@ -68,6 +72,7 @@ const Tags = ({ pageContext, data, location }: PageProps<DataWithPosts>) => {
                     description={post.frontmatter.description || post.excerpt}
                     postImage={postImage}
                     date={post.frontmatter.date}
+                    category={post.frontmatter.categories}
                   />
                 );
               })}
@@ -109,6 +114,7 @@ export const pageQuery = graphql`
               gatsbyImageData(width: 400)
             }
           }
+          categories
         }
       }
     }

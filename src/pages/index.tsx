@@ -28,12 +28,16 @@ type DataWithPosts = {
         excerpt: string;
         fields: {
           slug: string;
+          readingTime: {
+            text: string;
+          };
         };
         frontmatter: {
           date: string;
           title: string;
           description: string;
           thumbnail: IGatsbyImageData;
+          categories: string;
         };
       }
     ];
@@ -45,7 +49,7 @@ const IndexPage = ({ data, location }: PageProps<DataWithPosts>) => {
 
   return (
     <Layout location={location}>
-      <Seo title="Ian Chu" />
+      <Seo title="Home" />
       <Banner />
       <main>
         <div className="container mx-auto py-4 sm:px-4 lg:max-w-screen-lg">
@@ -62,6 +66,7 @@ const IndexPage = ({ data, location }: PageProps<DataWithPosts>) => {
                     description={post.frontmatter.description || post.excerpt}
                     postImage={postImage}
                     date={post.frontmatter.date}
+                    category={post.frontmatter.categories}
                   />
                 );
               })}
@@ -100,6 +105,7 @@ export const pageQuery = graphql`
               gatsbyImageData(width: 400)
             }
           }
+          categories
         }
       }
     }

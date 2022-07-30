@@ -5,6 +5,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 import type { CategoriesType, TagsType } from "../pages/index";
+import Tags from "./Tags";
 
 const SideBar = () => {
   const {
@@ -44,10 +45,10 @@ const SideBar = () => {
           >
             <StaticImage
               src="../images/hippostick.png"
-              alt="line sticky hippo"
+              alt="line sticker hippo"
               width={150}
             />
-            <p className="text-base text-center py-2">Line Sticky</p>
+            <p className="text-base text-center py-2">Line Sticker</p>
           </a>
         </div>
         <div className="pb-6">
@@ -63,14 +64,7 @@ const SideBar = () => {
         <div className="pb-6">
           <p className="text-base py-2 font-medium">Tag</p>
           <div className="flex flex-wrap">
-            {tags.map(({ value }, index) => (
-              <div className="tag-item" key={value}>
-                <Link to={`/tags/${value}`}>
-                  <span className="text-sm pb-2">{value}</span>
-                </Link>
-                {index < tags.length - 1 && <span className="px-0.5">·</span>}
-              </div>
-            ))}
+            <Tags tags={tags} />
           </div>
         </div>
       </div>

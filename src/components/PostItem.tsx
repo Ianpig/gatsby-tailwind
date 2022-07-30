@@ -8,6 +8,7 @@ type PostItemType = {
   description: string;
   postImage?: IGatsbyImageData;
   date: string;
+  category: string;
 };
 
 const PostItem = ({
@@ -16,6 +17,7 @@ const PostItem = ({
   description,
   postImage,
   date,
+  category,
 }: PostItemType) => {
   return (
     <article
@@ -48,7 +50,11 @@ const PostItem = ({
             />
           </Link>
         </section>
-        <small className="text-sm">{date}</small>
+        <div className="flex gap-1 items-center">
+          <small className="text-sm">{date}</small>
+          <div>·</div>
+          <Link to={`/categories/${category}`}>{category}</Link>
+        </div>
       </div>
       <div>{postImage && <GatsbyImage image={postImage} alt={title} />}</div>
     </article>

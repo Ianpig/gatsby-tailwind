@@ -29,8 +29,20 @@
     @apply text-4xl;
   }
 
-  article p {
+  .article>* {
+    @apply mb-2;
+  }
+
+  .article>p {
     @apply mb-5;
+  }
+
+  .article>.gatsby-highlight {
+    @apply mb-5;
+  }
+
+  a:hover {
+    @apply opacity-75;
   }
 }
 

@@ -31,7 +31,7 @@ const config: GatsbyConfig = {
         short_name: "IanChu",
         start_url: "/",
         background_color: "#ffffff",
-        icon: "src/images/icon.png",
+        icon: "src/images/gatsby-icon.png",
       },
     },
     {
@@ -84,10 +84,17 @@ const config: GatsbyConfig = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          `gatsby-remark-reading-time`,
         ],
       },
     },
     "gatsby-plugin-postcss",
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `ianchuu`,
+      },
+    },
   ],
 };
 

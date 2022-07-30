@@ -114,11 +114,11 @@ const HeaderSlide: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
                 >
                   <StaticImage
                     src="../images/hippostick.png"
-                    alt="line sticky hippo"
+                    alt="line  hippo"
                     width={200}
                     height={200}
                   />
-                  <p className="text-base text-center my-2">Line Sticky</p>
+                  <p className="text-base text-center my-2">Line Sticker</p>
                 </a>
               </div>
             </div>
