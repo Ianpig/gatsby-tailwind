@@ -17,7 +17,7 @@ const About = ({ location }: PageProps) => {
             markerting, so i realize SEO a little bit.
           </p>
           <p className="mb-4">
-            Someday, my father's signature company needed to build a website to
+            One day, my father's signature company needed to build a website to
             promote their business, so i started to learn how to create
             websites.
           </p>
